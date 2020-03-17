@@ -18,8 +18,13 @@ public function createPage(){
 }
 
 public function create (Request $request){
-
-$data = zarbon::create($request->except(["_token"]));
+    $check = $request->validate([
+        'title' => 'required|max:255',
+        'content' => 'required',
+    ]);
+    if ($check){
+        $data = zarbon::create($request->except(["_token"]));
+    }
     if($data){
         $message = "success";
     }else{

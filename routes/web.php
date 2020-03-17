@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('zarbon',"ZarbonController@controllpanel");
-Route::get('zarbon/createPage',"ZarbonController@createPage");
+Route::get('zarbon/createPage',"ZarbonController@createPage")->middleware('sherror');
 Route::post('zarbon/create',"ZarbonController@create");
 Route::get('zarbon/showForEdit',"ZarbonController@showForEdit");
 Route::get('zarbon/editPage/{id}',"ZarbonController@editPage");
